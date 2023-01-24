@@ -1,0 +1,15 @@
+pipeline {
+  agent { label 'debian_worker0' }
+  stages {
+    stage ("version") {
+      steps {
+        sh 'java -version'
+      }
+    }
+    stage("hello") {
+      steps {
+        sh 'java hello_world'
+      }
+    }
+  }
+}
