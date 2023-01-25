@@ -1,0 +1,10 @@
+pipeline {
+  agent { label 'ubuntu_worker0' }
+  stages {
+    stage ("version") {
+      steps {
+        sh 'terraform --version'
+      }
+    }
+  }
+}
