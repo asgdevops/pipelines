@@ -1,0 +1,15 @@
+pipeline {
+
+  agent { 
+    docker { label 'alpine_controller' } 
+  }
+
+  stages {
+    stage("version") {
+      steps {
+        sh 'ansible --version'
+      }
+    }
+  }
+
+}
