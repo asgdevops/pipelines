@@ -12,6 +12,12 @@ pipeline {
       }
     }
 
+    stage('checkout') {
+      steps {
+        checkout scm
+      }
+    }
+
     stage('Version') {
       steps {
         sh '${TOOL} --version'
