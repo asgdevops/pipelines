@@ -1,0 +1,25 @@
+pipeline {
+ 
+  agent { label '${LABEL}' }
+  
+  options { skipDefaultCheckout(true) }
+  
+  stages {
+
+    stage('clean workspace') {
+      steps {
+        cleanWs()
+      }
+    }
+
+    stage('Version') {
+      steps {
+        sh '${TOOL} --version'
+      }
+    }
+
+  }
+
+  post { always { cleanWs() } }
+
+}
