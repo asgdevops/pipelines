@@ -1,7 +1,7 @@
 pipeline {
  
   agent { label "${LABEL}" }
-  
+
   options { skipDefaultCheckout(true) }
   
   stages {
@@ -17,13 +17,6 @@ pipeline {
         sh "${TOOL} --version"
       }
     }
-
-    stage('Hello') {
-      steps {
-        sh 'python3 hello_world.py'
-      }
-    }
-
 
   }
 
