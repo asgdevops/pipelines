@@ -1,6 +1,7 @@
 pipeline {
   agent { label 'centos_worker' }
   options { skipDefaultCheckout(true) }
+
   stages {
 
     /* Template stages: clean workspace and checkout*/
