@@ -1,0 +1,26 @@
+pipeline {
+  agent { label '${AGENT}' }
+  options { skipDefaultCheckout(true) }
+  stages {
+
+    /* Template stages: clean workspace and checkout*/
+    stage('clean workspace') { steps { cleanWs() } }
+    stage('checkout') { steps { checkout scm } }
+
+    /* Custom Stages */
+    stage ("version") {
+      steps {
+        sh 'java -version'
+      }
+    }
+
+    stage("hello") {
+      steps {
+        sh 'java hello_world'
+      }
+    }
+
+  }
+  // Template stage: cleanWS
+  post { always { cleanWs() } }
+}

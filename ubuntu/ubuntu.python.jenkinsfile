@@ -1,14 +1,14 @@
 pipeline {
-  agent { label 'centos_worker0' }
+  agent { label 'ubuntu_workers' }
   stages {
     stage ("version") {
       steps {
-        sh 'java -version'
+        sh 'python3 --version'
       }
     }
     stage("hello") {
       steps {
-        sh 'java hello_world'
+        sh 'python3 hello_world.py'
       }
     }
   }

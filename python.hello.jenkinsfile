@@ -1,0 +1,23 @@
+pipeline {
+  agent { label '${AGENT}' }
+  options { skipDefaultCheckout(true) }
+  stages {
+
+    /* Template stages: clean workspace and checkout*/
+    stage('clean workspace') { steps { cleanWs() } }
+    stage('checkout') { steps { checkout scm } }
+
+    stage ("version") {
+      steps {
+        sh 'python3 --version'
+      }
+    }
+    stage("hello") {
+      steps {
+        sh 'python3 ../hello_world.py'
+      }
+    }
+  }
+  // Template stage: cleanWS
+  post { always { cleanWs() } }  
+}
