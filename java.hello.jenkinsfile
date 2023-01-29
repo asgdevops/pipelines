@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'centos_worker' }
+  agent any
   options { skipDefaultCheckout(true) }
   stages {
 
